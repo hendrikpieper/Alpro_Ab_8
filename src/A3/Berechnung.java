@@ -1,6 +1,7 @@
 package A3;
 import java.util.Arrays;
 
+
 public class Berechnung {       //Funktion für den höchsten Tageswert
      public int[][] hoechsterTagesWert(int tag, int[][] daten){
         int[][] maximalWert = new int[2][1];
@@ -9,7 +10,7 @@ public class Berechnung {       //Funktion für den höchsten Tageswert
         for(int i = 0; i < daten[tag].length; i++) {
             if (daten[tag][i] > maximalWert[0][0]) {
                 maximalWert[0][0] = daten[tag][i];
-                maximalWert[1][0] = i;
+                maximalWert[1][0] = i+1;
             }
         }
         return maximalWert;
@@ -22,7 +23,7 @@ public class Berechnung {       //Funktion für den höchsten Tageswert
             for(int i = 0; i < daten[tag].length; i++) {
                 if (daten[tag][i] > minimalWert[0][0]) {
                     minimalWert[0][0] = daten[tag][i];
-                    minimalWert[1][0] = i;
+                    minimalWert[1][0] = i+1;
                 }
             }
             return minimalWert;
@@ -38,7 +39,7 @@ public class Berechnung {       //Funktion für den höchsten Tageswert
             if (vergleichsWert[0][0] > hoechstWert[0][0]) {
                     hoechstWert[0][0] = vergleichsWert[0][0];
                     hoechstWert[1][0] = vergleichsWert[1][0];
-                    hoechstWert[2][0] = i;
+                    hoechstWert[2][0] = i+1;
             }
         }
         return hoechstWert;
@@ -54,14 +55,31 @@ public class Berechnung {       //Funktion für den höchsten Tageswert
             if (vergleichsWert[0][0] < nidrigsterWert[0][0]) {
                 nidrigsterWert[0][0] = vergleichsWert[0][0];
                 nidrigsterWert[1][0] = vergleichsWert[1][0];
-                nidrigsterWert[2][0] = i;
+                nidrigsterWert[2][0] = i+1;
             }
         }
         return nidrigsterWert;
     }
 
     public void datenDruckenArrayArray(int[][] zudrucken){
-        System.out.println(Arrays.toString(zudrucken));
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < zudrucken.length; i++){
+            if(i == 0){
+                sb.append("Es waren: ");
+                sb.append(zudrucken[0][0]);
+                sb.append(" Grad, um ");
+            }
+            else if(i == 1){
+                sb.append(zudrucken[1][0]);
+                sb.append("Uhr.");
+            }
+            else if(i == 2){
+                sb.append(" Am ");
+                sb.append(zudrucken[2][0]);
+                sb.append(" Tag.");
+            }
+        }
+        System.out.println(sb);
     }
 
 
