@@ -8,6 +8,6 @@ public class Main {
         Daten daten = new Daten();
         int[][] montag = berechnung.hoechsterTagesWert(0, daten.temperaturesOverTheWeek);
         int[][] woche = berechnung.hoechsterWochenWert(daten.temperaturesOverTheWeek);
-        berechnung.datenDruckenArrayArray(montag);
+        berechnung.datenDruckenArrayArray(woche);
     }
 }

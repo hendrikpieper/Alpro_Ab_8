@@ -61,6 +61,30 @@ public class Berechnung {       //Funktion für den höchsten Tageswert
         return nidrigsterWert;
     }
 
+    public double[][] tagesDurchschnittsTemperatur(int tag, int[][] daten){
+         double[][] rueckgabe = new double[2][1];
+         double gesamtTemperatur = daten[tag][0];
+         rueckgabe[0][0] = gesamtTemperatur;
+         for(int i = 1; i < daten[tag].length; i++){
+             gesamtTemperatur += daten[tag][i];
+             rueckgabe[1][0] = i;
+         }
+         rueckgabe[0][0] = (gesamtTemperatur / (daten[tag].length));
+         return rueckgabe;
+    }
+
+    public int wochenDurchschnittsTemperatur(int[][] daten){
+         int gesamtTemperatur = 0;
+         int anzahlMessungen = 0;
+         for(int i = 0; i < daten.length; i++){
+             for(int j = 0; j < daten[i].length; j++){
+                 gesamtTemperatur += daten[i][j];
+                 anzahlMessungen += 1;
+             }
+         }
+         return (gesamtTemperatur/anzahlMessungen);
+    }
+
     public void datenDruckenArrayArray(int[][] zudrucken){
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < zudrucken.length; i++){
@@ -81,6 +105,8 @@ public class Berechnung {       //Funktion für den höchsten Tageswert
         }
         System.out.println(sb);
     }
+
+    public void druckeDurchschnittsTemperatur()
 
 
 }
